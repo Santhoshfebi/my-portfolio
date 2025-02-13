@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css');
+@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
+
+
+#root {
+  max-width: 1280px;
+  margin: 10 0 0 10;
+  padding: 2rem;
+  text-align: center;
+}
