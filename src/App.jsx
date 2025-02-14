@@ -8,7 +8,6 @@ import Skills from "./Components/Skills";
 function App() {
   return (
     <div>
-      <Navbar />
       <Hero />
       <About />
       <Projects />
