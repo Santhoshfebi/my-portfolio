@@ -21,7 +21,7 @@ const Hero = () => {
         </div>
         
         <div className="flex justify-center md:h-40 bg-black">
-          <p className=" md:text-center text-white ">Hi, I'm Santhosh, a passionate Full-Stack Developer. I'm specialize in building dynamic and responsive web applications using modern technologies like
+          <p className=" ml-2 mr-2 md:text-center md:mt-4 text-white ">Hi, I'm Santhosh, a passionate Full-Stack Developer. I'm specialize in building dynamic and responsive web applications using modern technologies like
              JavaScript, ReactJS and MySQL.</p>
         </div>
       </div>

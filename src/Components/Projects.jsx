@@ -6,11 +6,14 @@ const Projects = () => {
           <div className="bg-white p-4 shadow rounded-lg">
             <h3 className="text-xl font-semibold">Bookmyshow Clone Website</h3>
             <p className="text-gray-600">A cloned website with basic user interactions using HTML,CSS,JavaScript,ReactJS and MySQL.</p>
-            <p className="text-gray-600">LINK : <a href="www.booking-app-pink.vercel.app">booking-app-pink.vercel.app</a></p>
+            <p className="text-gray-600"><strong>Code Base Link:</strong>  <a href="https://github.com/Santhoshfebi/moviebooking">github/booking_app</a></p>
+            <p className="text-gray-600"><strong>Deployment Link:</strong> <a href="https://moviebooking-git-master-santhoshs-projects-40d568cb.vercel.app/">Booking APP</a></p>
           </div>
           <div className="bg-white p-4 shadow rounded-lg">
             <h3 className="text-xl font-semibold">Quizz App</h3>
             <p className="text-gray-600">A simple Quizz App where you can attend the quizz. we have features like scoreboard,  correct answers and worng answers.</p>
+            <p className="text-gray-600"><strong>Code Base Link:</strong>  <a href="https://github.com/Santhoshfebi/Quizz" target="_blank">github/Quizz_app</a></p>
+            <p className="text-gray-600"><strong>Deployment Link:</strong>  <a href="https://quizz-react-app-theta.vercel.app">Quizz APP</a></p>
           </div>
           {/* <div className="bg-white p-4 shadow rounded-lg">
             <h3 className="text-xl font-semibold">simple Quizz App</h3>
