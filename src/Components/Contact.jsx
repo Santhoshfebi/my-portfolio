@@ -8,9 +8,12 @@ const Contact = () => {
         <p>Email: santhoshrajr121@gmail</p>
         <p>LinkedIn: https://www.linkedin.com/in/santhosh-raj-28b8281aa/</p>
         <div className="btn flex justify-center gap-8">
-            <button className="h-10 w-10  hover:bg-white"><img src={linkedin} alt="" /></button>
-            <button className="h-10 w-10  hover:bg-white rounded-full"><img src={github} alt="" /></button>
-          </div>
+            <button className="h-10 w-10  hover:bg-white"><a href="https://www.linkedin.com/in/santhosh-raj-28b8281aa/" target="_blank"><img src={linkedin} alt="" /></a>
+            </button> 
+            <button className="h-10 w-10  hover:bg-white rounded-full"><a href="https://github.com/Santhoshfebi" target="_blank"><img src={github} alt="" /></a>
+            </button>
+       </div>
+        
       </section>
     );
   };

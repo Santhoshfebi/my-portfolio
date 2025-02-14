@@ -15,8 +15,10 @@ const Hero = () => {
            <p className="text-lg mt-2">A Freshmen skilled in ReactJS & Java </p>
         
            <div className="btn flex gap-8">
-              <button className="h-10 w-10  hover:bg-white"><img src={linkedin} alt="" /></button>
-              <button className="h-10 w-10  hover:bg-white rounded-full"><img src={github} alt="" /></button>
+              <button className="h-10 w-10  hover:bg-white"><a href="https://www.linkedin.com/in/santhosh-raj-28b8281aa/" target="_blank"><img src={linkedin} alt="" /></a>
+              </button> 
+              <button className="h-10 w-10  hover:bg-white rounded-full"><a href="https://github.com/Santhoshfebi" target="_blank"><img src={github} alt="" /></a>
+              </button>
            </div>
         </div>
         

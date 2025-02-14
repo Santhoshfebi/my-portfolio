@@ -48,7 +48,7 @@ const Skills = () => {
           <div class="grid grid-cols-2 md:grid-cols-4 gap-12  w-1/2 "> 
             <div className="flex flex-col gap-8"><img src={sql} alt="" className='h-15 w-15' /><h1 className='ml-1'>MySQL</h1></div>
             <div className="flex flex-col gap-8"><img src={ang} alt="" className='h-15 w-15' /><h1 className=''>AngularJS</h1></div>
-            <div className="flex flex-col gap-8"><img src={nod} alt="" className='h-15 w-15' /><h1 className='ml-2'>NodeJS</h1></div>
+            <div className="flex flex-col gap-8"><img src={nod} alt="" className='h-15 w-15' /><h1 className='ml-1'>NodeJS</h1></div>
             <div className="flex flex-col gap-8"><img src={ty} alt="" className='h-15 w-15' /><h1 className='' >TypeScript</h1></div>
          </div>
 
