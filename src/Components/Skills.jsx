@@ -11,7 +11,7 @@ import git from '../assets/social.png'
 
 const Skills = () => {
   return ( 
-    <section id='skills' className='h-screen p-10 flex flex-col justify-evenly gap-8'>
+    <section id='skills' className='p-10 flex flex-col justify-evenly gap-8'>
       <div className='flex justify-center'>
         <div className='border-4 w-24 text-center '>
             <h1>SKILLS</h1>
