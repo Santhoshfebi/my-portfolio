@@ -7,6 +7,8 @@ import rea from '../assets/library.png'
 import sql from '../assets/mysql.png'
 import jav from '../assets/java.png'
 import git from '../assets/social.png'
+import nod from '../assets/nodejs.png'
+import exp from '../assets/express.png'
 
 
 const Skills = () => {
@@ -45,8 +47,8 @@ const Skills = () => {
           <div class="grid grid-cols-2 md:grid-cols-4 gap-12  w-1/2 "> 
             <div className="flex flex-col gap-8"><img src={sql} alt="" className='h-15 w-15' /><h1 className='ml-1'>MySQL</h1></div>
             <div className="flex flex-col gap-8"><img src={boot} alt="" className='h-15 w-15' /><h1 className=''>AngularJS</h1></div>
-            <div className="flex flex-col gap-8"><img src={jav} alt="" className='h-15 w-15' /><h1 className='ml-2'>NodeJS</h1></div>
-            <div className="flex flex-col gap-8"><img src={git} alt="" className='h-15 w-15' /><h1 className='' >ExpressJS</h1></div>
+            <div className="flex flex-col gap-8"><img src={nod} alt="" className='h-15 w-15' /><h1 className='ml-2'>NodeJS</h1></div>
+            <div className="flex flex-col gap-8"><img src={exp} alt="" className='h-15 w-15' /><h1 className='' >ExpressJS</h1></div>
          </div>
 
          </div>
