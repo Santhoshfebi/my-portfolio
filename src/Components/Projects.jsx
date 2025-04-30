@@ -4,11 +4,11 @@ const Projects = () => {
       <h2 className="text-3xl font-bold text-center">Projects</h2>
       <div className="grid md:grid-cols-2 gap-6 mt-6">
         <div className="bg-white p-4 shadow rounded-lg">
-          <h3 className="text-xl font-semibold">Bookmyshow Clone Website</h3>
+          <h3 className="text-xl font-semibold">Moviebooking Website</h3>
           <p className="text-gray-600">The BookMyShow Clone is a fully responsive, interactive web application built using ReactJS along with HTML, CSS, and JavaScript, designed to replicate the core functionality and user experience of the original BookMyShow platform. 
             This project uses API to fetch dynamic data for movies, including posters, descriptions, genres, ratings, and showtimes from the database.</p>
-          <p className="text-gray-600"><strong>Code Base Link:</strong>  <a href="https://github.com/Santhoshfebi/moviebooking">github/booking_app</a></p>
-          <p className="text-gray-600"><strong>Deployment Link:</strong> <a href="https://moviebooking-git-master-santhoshs-projects-40d568cb.vercel.app/">Booking APP</a></p>
+          <p className="text-gray-600"><strong>Code Base Link:</strong>  <a href="https://github.com/Santhoshfebi/Bookmyshow_clone_web">github/booking_app</a></p>
+          <p className="text-gray-600"><strong>Deployment Link:</strong> <a href="https://bookingapp-orcin.vercel.app/">Booking APP</a></p>
         </div>
         <div className="bg-white p-4 shadow rounded-lg">
           <h3 className="text-xl font-semibold">Quizz App</h3>
