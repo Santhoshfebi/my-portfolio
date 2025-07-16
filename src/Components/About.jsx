@@ -12,11 +12,11 @@ const About = () => {
       <div className="des1 flex gap-30 justify-center">
         <section>
         <h1 className='text-center text-2xl'>DESIGN</h1>
-        <p>I can design the website as your need.</p>
+        <p>Collabrate with you by designing a responsive and interactive website .</p>
         </section>
         <section>
         <h1 className='text-center text-2xl'>DEVELOPMENT</h1>
-        <p>I can Develope the website more responsive.</p>
+        <p>Developing a responsive and interactive website that engage users to use webiste.</p>
         </section>
         </div>
     </section>
