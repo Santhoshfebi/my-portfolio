@@ -16,7 +16,7 @@ const About = () => {
         </section>
         <section>
         <h1 className='text-center text-2xl'>DEVELOPMENT</h1>
-        <p>Developing a responsive and interactive website that engage users to use webiste.</p>
+        <p>Developing a responsive and interactive website that engage users to use webiste seamlessly.</p>
         </section>
         </div>
     </section>
