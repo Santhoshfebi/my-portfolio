@@ -1,62 +1,62 @@
-import React from 'react'
-import htm from '../assets/html.png'
-import css from '../assets/css-3.png'
-import js from '../assets/js.png'
-import boot from '../assets/bootstrap.png'
-import rea from '../assets/library.png'
-import sql from '../assets/mysql.png'
-import jav from '../assets/java.png'
-import git from '../assets/social.png'
-import nod from '../assets/nodejs.png'
-import ty from '../assets/typescript.png'
-import ang from '../assets/angular.png'
-
+import htm from '../assets/html.png';
+import css from '../assets/css-3.png';
+import js from '../assets/js.png';
+import boot from '../assets/bootstrap.png';
+import rea from '../assets/library.png';
+import sql from '../assets/mysql.png';
+import jav from '../assets/java.png';
+import git from '../assets/social.png';
+import nod from '../assets/nodejs.png';
+import ty from '../assets/typescript.png';
+import ang from '../assets/angular.png';
+import { motion } from 'framer-motion';
 
 const Skills = () => {
-  return ( 
-    <section id='skills' className='p-10 flex flex-col justify-evenly gap-8'>
-      <div className='flex justify-center'>
-        <div className='border-4 w-24 text-center '>
-            <h1>SKILLS</h1>
+  const currentSkills = [
+    { img: htm, label: "HTML5" },
+    { img: css, label: "CSS" },
+    { img: js, label: "JavaScript" },
+    { img: rea, label: "ReactJS" },
+    { img: sql, label: "MySQL" },
+    { img: boot, label: "Bootstrap" },
+    { img: jav, label: "Java" },
+    { img: git, label: "Git" },
+  ];
+
+  const learningSkills = [
+    { img: sql, label: "MySQL" },
+    { img: ang, label: "AngularJS" },
+    { img: nod, label: "NodeJS" },
+    { img: ty, label: "TypeScript" },
+  ];
+
+  const renderSkills = (skills) => (
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-12 w-3/4 mx-auto">
+      {skills.map((skill, idx) => (
+        <div key={idx} className="flex flex-col gap-4 items-center">
+          <img src={skill.img} alt={skill.label} className="h-16 w-16" />
+          <h1>{skill.label}</h1>
         </div>
-      </div>
+      ))}
+    </div>
+  );
 
-      
-         <h1 className='text-2xl text-center'>
-          Using Now :
-         </h1>
+  return (
+    <motion.section
+      id="skills"
+      className="p-10 min-h-screen flex flex-col gap-8"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true }}
+    >
+      <h1 className="text-4xl text-center mb-6">Skills</h1>
+      <h2 className="text-2xl text-center mb-4">Using Now</h2>
+      {renderSkills(currentSkills)}
+      <h2 className="text-2xl text-center mt-8 mb-4">Learning</h2>
+      {renderSkills(learningSkills)}
+    </motion.section>
+  );
+};
 
-         <div className=" flex justify-center">
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-12  w-1/2 "> 
-            <div className="flex flex-col gap-8"><img src={htm} alt="" className='h-15 w-15' /> <h1 className='ml-1'>HTML 5</h1></div>
-            <div className="flex flex-col gap-8"><img src={css} alt="" className='h-15 w-15' /><h1 className='ml-4'>CSS</h1></div>
-            <div className="flex flex-col gap-8"><img src={js} alt="" className='h-15 w-15' /><h1 className=''>JavaScript</h1></div>
-            <div className="flex flex-col gap-8"><img src={rea} alt="" className='h-15 w-15' /><h1 className='ml-2'>ReactJS</h1></div>
-            <div className="flex flex-col gap-8"><img src={sql} alt="" className='h-15 w-15' /><h1 className='ml-1'>MySQL</h1></div>
-            <div className="flex flex-col gap-8"><img src={boot} alt="" className='h-15 w-15' /><h1 className=''>BootStrap</h1></div>
-            <div className="flex flex-col gap-8"><img src={jav} alt="" className='h-15 w-15' /><h1 className='ml-4'>Java</h1></div>
-            <div className="flex flex-col gap-8"><img src={git} alt="" className='h-15 w-15' /><h1 className='ml-4' >Git</h1></div>
-         </div>
-
-         </div>
-
-      <h1 className='text-2xl text-center'>
-          Learning :
-         </h1>
-
-         <div className=" flex justify-center">
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-12  w-1/2 "> 
-            <div className="flex flex-col gap-8"><img src={sql} alt="" className='h-15 w-15' /><h1 className='ml-1'>MySQL</h1></div>
-            <div className="flex flex-col gap-8"><img src={ang} alt="" className='h-15 w-15' /><h1 className=''>AngularJS</h1></div>
-            <div className="flex flex-col gap-8"><img src={nod} alt="" className='h-15 w-15' /><h1 className='ml-1'>NodeJS</h1></div>
-            <div className="flex flex-col gap-8"><img src={ty} alt="" className='h-15 w-15' /><h1 className='' >TypeScript</h1></div>
-         </div>
-
-         </div>
-
-
-    </section>
-  )
-}
-
-export default Skills
+export default Skills;

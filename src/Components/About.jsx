@@ -1,26 +1,33 @@
-import React from 'react'
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section id='about' className='h-screen flex flex-col justify-evenly'>
-      <h1 className='flex justify-center text-5xl'>About Me</h1>
-      <p className='text-center'>As a recent beginner in the world of web development, I am eager to take on new challenges and continuously improve my skills.<br></br> Whether it's creating a sleek front-end or building a robust back-end, 
-             I’m excited to work on both sides of development to bring projects to life.<br></br> I’m always learning and looking forward to growing in this field.
-           Inovative and skilled engineering graduate.
-        Proficient in creating user interfaces,writing and testing codes,solving <br></br> problems and implementing new features based on user feedback.
-        </p>
-      <div className="des1 flex gap-30 justify-center">
-        <section>
-        <h1 className='text-center text-2xl'>DESIGN</h1>
-        <p>Collabrate with you by designing a responsive and interactive website .</p>
-        </section>
-        <section>
-        <h1 className='text-center text-2xl'>DEVELOPMENT</h1>
-        <p>Developing a responsive and interactive website that engage users to use website seamlessly.</p>
-        </section>
+    <motion.section
+      id="about"
+      className="min-h-screen flex flex-col justify-evenly px-6 py-10 bg-gray-50 dark:bg-gray-800 dark:text-gray-100"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true }}
+    >
+      <h1 className="text-5xl text-center mb-6">About Me</h1>
+      <p className="text-center max-w-3xl mx-auto mb-8">
+        As a beginner in web development, I am eager to take on new challenges and continuously improve my skills.
+        Whether it’s creating a sleek front-end or building a robust back-end, I’m excited to bring projects to life.
+        Innovative and skilled engineering graduate, proficient in creating user interfaces, writing and testing code, solving problems, and implementing new features based on user feedback.
+      </p>
+      <div className="flex flex-col md:flex-row justify-center gap-10 text-center">
+        <div>
+          <h2 className="text-2xl mb-2">DESIGN</h2>
+          <p>Collaborate to design responsive and interactive websites.</p>
         </div>
-    </section>
-  )
-}
+        <div>
+          <h2 className="text-2xl mb-2">DEVELOPMENT</h2>
+          <p>Develop responsive websites that engage users seamlessly.</p>
+        </div>
+      </div>
+    </motion.section>
+  );
+};
 
-export default About
+export default About;

@@ -1,13 +1,57 @@
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 const Navbar = () => {
-    return (
-      <nav className="bg-white text-black p-4 flex justify-end">
-        <ul className="flex space-x-16">
-          <li><a href="#about" className="hover:text-white-400">About Me</a></li>
-          <li><a href="#projects" className="hover:text-white-400">Projects</a></li>
-          <li><a href="#skills" className="hover:text-white-400">Skills</a></li>
-          <li><a href="#contact" className="hover:text-white-400  rounded-md">Contact</a></li>
-        </ul>
-      </nav>
+  const [activeSection, setActiveSection] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { threshold: 0.6 }
     );
-  };
-  export default Navbar;
+    sections.forEach((sec) => observer.observe(sec));
+    return () => sections.forEach((sec) => observer.unobserve(sec));
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) document.documentElement.classList.add("dark");
+    else document.documentElement.classList.remove("dark");
+  }, [darkMode]);
+
+  const navItems = [
+    { id: "about", label: "About" },
+    { id: "projects", label: "Projects" },
+    { id: "skills", label: "Skills" },
+    { id: "resume", label: "Resume" },
+    { id: "contact", label: "Contact" },
+  ];
+
+  return (
+    <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow-md z-50 transition-colors duration-300">
+      <ul className="flex justify-end items-center space-x-8 p-4 text-lg font-semibold text-gray-800 dark:text-gray-200">
+        {navItems.map((item) => (
+          <li key={item.id}>
+            <a
+              href={`#${item.id}`}
+              className={`transition-all duration-300 ${
+                activeSection === item.id
+                  ? "text-cyan-500 border-b-2 border-cyan-500 pb-1"
+                  : "hover:text-cyan-500 dark:hover:text-cyan-400"
+              }`}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
+
+export default Navbar;
