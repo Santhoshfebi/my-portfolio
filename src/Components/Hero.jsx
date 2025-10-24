@@ -1,7 +1,7 @@
 import TypingText from "./TypingText";
 import linkedin from "../assets/linkedin.png";
 import github from "../assets/github.svg";
-import profile from "../assets/profile.jpg"; 
+import profile from "../assets/Profile.jpg"; 
 import Navbar from "./Navbar";
 import { motion } from "framer-motion";
 
