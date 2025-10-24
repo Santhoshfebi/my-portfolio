@@ -1,11 +1,29 @@
-@import "tailwindcss";
+/* ============================= */
+/* Tailwind base imports (must be first) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================= */
+/* External icon fonts */
 @import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css');
 @import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
 
-
+/* ============================= */
+/* Custom styles */
 #root {
   max-width: 1280px;
-  margin: 10 0 0 10;
+  margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+/* Optional: smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: global link hover */
+a {
+  transition: color 0.3s;
 }
