@@ -18,10 +18,10 @@ const Projects = () => {
     },
    
     {
-      title: "Login Page",
-      description: "User login page with validation, error feedback, and secure password masking.",
-      codeLink: "https://github.com/Santhoshfebi/login_page",
-      deployLink: "https://login-page-iota-vert.vercel.app/"
+      title: "HR-PORTAL",
+      description: "HR Portal – A web-based recruitment management platform designed to streamline the hiring process for HR teams and candidates. Built using React, TailwindCSS, and Supabase, it enables secure resume uploads, candidate profile management, and recruiter dashboards. Features include user authentication, profile completion tracking, and a responsive UI for both desktop and mobile users.",
+      codeLink: "https://github.com/Santhoshfebi/hr-portal",
+      deployLink: "https://hr-portal-iota.vercel.app/"
     },
     {
       title: "E-com website",
