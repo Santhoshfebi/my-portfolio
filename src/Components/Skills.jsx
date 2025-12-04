@@ -31,12 +31,21 @@ const Skills = () => {
   ];
 
   const renderSkills = (skills) => (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-12 w-3/4 mx-auto">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 md:gap-14 w-full max-w-5xl mx-auto mt-6">
       {skills.map((skill, idx) => (
-        <div key={idx} className="flex flex-col gap-4 items-center">
+        <motion.div
+          key={idx}
+          className="flex flex-col gap-4 items-center bg-white dark:bg-gray-800 shadow-md hover:shadow-xl 
+          p-6 rounded-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 
+          hover:-translate-y-2 backdrop-blur"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4, delay: idx * 0.1 }}
+          viewport={{ once: true }}
+        >
           <img src={skill.img} alt={skill.label} className="h-16 w-16" />
-          <h1>{skill.label}</h1>
-        </div>
+          <h1 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{skill.label}</h1>
+        </motion.div>
       ))}
     </div>
   );
@@ -44,17 +53,28 @@ const Skills = () => {
   return (
     <motion.section
       id="skills"
-      className="p-10 min-h-screen flex flex-col gap-8"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      className="p-10 min-h-screen flex flex-col gap-12 bg-gradient-to-b from-gray-900 to-gray-800 text-white"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
       viewport={{ once: true }}
     >
-      <h1 className="text-4xl text-center mb-6">Skills</h1>
-      <h2 className="text-2xl text-center mb-4">Using Now</h2>
-      {renderSkills(currentSkills)}
-      <h2 className="text-2xl text-center mt-8 mb-4">Learning</h2>
-      {renderSkills(learningSkills)}
+      <div className="text-center">
+        <h1 className="text-5xl font-extrabold">Skills</h1>
+        <p className="text-gray-600 dark:text-gray-300 mt-3 text-lg max-w-2xl mx-auto">
+          A collection of technologies I actively use and those I am currently learning to expand my skill set.
+        </p>
+      </div>
+
+      <div>
+        <h2 className="text-3xl text-center font-semibold">Using Now</h2>
+        {renderSkills(currentSkills)}
+      </div>
+
+      <div>
+        <h2 className="text-3xl text-center font-semibold">Learning</h2>
+        {renderSkills(learningSkills)}
+      </div>
     </motion.section>
   );
 };

@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
-
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
@@ -15,14 +13,10 @@ const Navbar = () => {
       },
       { threshold: 0.6 }
     );
+
     sections.forEach((sec) => observer.observe(sec));
     return () => sections.forEach((sec) => observer.unobserve(sec));
   }, []);
-
-  useEffect(() => {
-    if (darkMode) document.documentElement.classList.add("dark");
-    else document.documentElement.classList.remove("dark");
-  }, [darkMode]);
 
   const navItems = [
     { id: "about", label: "About" },
@@ -33,24 +27,49 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow-md z-50 transition-colors duration-300">
-      <ul className="flex justify-end items-center space-x-8 p-4 text-lg font-semibold text-gray-800 dark:text-gray-200">
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center px-4">
+      {/* Responsive Container */}
+      <div
+        className="
+          backdrop-blur-xl bg-white/10 dark:bg-black/20
+          border border-white/20 shadow-2xl
+          py-2 px-4 md:px-6 
+          rounded-full flex items-center gap-3 md:gap-6
+          overflow-x-auto scrollbar-hide
+          max-w-sm sm:max-w-md md:max-w-2xl
+        "
+      >
         {navItems.map((item) => (
-          <li key={item.id}>
-            <a
-              href={`#${item.id}`}
-              className={`transition-all duration-300 ${
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={`
+              relative font-medium text-white dark:text-gray-200 
+              px-3 py-2 whitespace-nowrap text-sm sm:text-base transition-all duration-300
+              hover:-translate-y-1
+              ${
                 activeSection === item.id
-                  ? "text-cyan-500 border-b-2 border-cyan-500 pb-1"
-                  : "hover:text-cyan-500 dark:hover:text-cyan-400"
-              }`}
-            >
-              {item.label}
-            </a>
-          </li>
+                  ? "text-cyan-300"
+                  : "hover:text-cyan-300"
+              }
+            `}
+          >
+            {item.label}
+
+            {/* Active highlight */}
+            {activeSection === item.id && (
+              <span
+                className="
+                  absolute inset-0 -z-10 rounded-full bg-cyan-500/20
+                  shadow-[0_0_15px_rgba(34,211,238,0.5)]
+                  backdrop-blur-xl transition-all
+                "
+              ></span>
+            )}
+          </a>
         ))}
-      </ul>
-    </nav>
+      </div>
+    </div>
   );
 };
 
