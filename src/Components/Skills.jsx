@@ -9,6 +9,8 @@ import git from '../assets/social.png';
 import nod from '../assets/nodejs.png';
 import ty from '../assets/typescript.png';
 import ang from '../assets/angular.png';
+import Aws from '../assets/Aws.png';
+import Devops from '../assets/Devops.png';
 import { motion } from 'framer-motion';
 
 const Skills = () => {
@@ -28,6 +30,8 @@ const Skills = () => {
     { img: ang, label: "AngularJS" },
     { img: nod, label: "NodeJS" },
     { img: ty, label: "TypeScript" },
+    { img: Aws, label: "AWS-Services" },
+    { img: Devops, label: "DevOps" },
   ];
 
   const renderSkills = (skills) => (

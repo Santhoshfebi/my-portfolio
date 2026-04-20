@@ -68,7 +68,7 @@ const Contact = () => {
       </div>
 
       <p className="text-gray-400 text-sm mt-10 mb-10">
-        © {new Date().getFullYear()} Santhosh Raj — All Rights Reserved
+        © - Santhosh Raj 
       </p>
     </motion.section>
   );

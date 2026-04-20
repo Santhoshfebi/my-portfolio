@@ -3,22 +3,22 @@ import { motion } from "framer-motion";
 const Projects = () => {
   const projectList = [
     {
-      title: "Quiz App",
+      title: "Quiz App (Quiztians)",
       description: "Quiztians is a modern, bilingual (English & Tamil) quiz web application built with React, Framer Motion, React Router, and Supabase. It allows participants to take a timed quiz, view their scores, and see the leaderboard, while providing admins a secure panel to manage participants.",
       codeLink: "https://github.com/Santhoshfebi/Quiztians",
       deployLink: "https://quiztians.vercel.app/"
-    },
-    {
-      title: "Moviebooking Website",
-      description: "A BookMyShow clone built with ReactJS, fetching dynamic movie data from API. Fully responsive and interactive.",
-      codeLink: "https://github.com/Santhoshfebi/Bookmyshow_clone_web",
-      deployLink: "https://bookingapp-orcin.vercel.app/"
     },
     {
       title: "HR-PORTAL",
       description: "HR Portal – A web-based recruitment management platform designed to streamline the hiring process for HR teams and candidates. Built using React, TailwindCSS, and Supabase, it enables secure resume uploads, candidate profile management, and recruiter dashboards. Features include user authentication, profile completion tracking, and a responsive UI for both desktop and mobile users.",
       codeLink: "https://github.com/Santhoshfebi/hr-portal",
       deployLink: "https://hr-portal-iota.vercel.app/"
+    },
+    {
+      title: "Moviebooking Website",
+      description: "A BookMyShow clone built with ReactJS, fetching dynamic movie data from API. Fully responsive and interactive.",
+      codeLink: "https://github.com/Santhoshfebi/Bookmyshow_clone_web",
+      deployLink: "https://bookingapp-orcin.vercel.app/"
     },
     {
       title: "E-com website",

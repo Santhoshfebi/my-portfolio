@@ -77,7 +77,7 @@ const Hero = () => {
           >
             <p className="text-gray-700 leading-relaxed">
               I’m Santhosh, a passionate Full-Stack Developer who loves building clean, fast 
-              and responsive web applications using JavaScript, React, Node, and MySQL.
+              and responsive web applications.
             </p>
           </motion.div>
 
