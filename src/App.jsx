@@ -1,22 +1,24 @@
-import Navbar from "./Components/Navbar";
-import Hero from "./Components/Hero";
-import About from "./Components/About";
-import Projects from "./Components/Projects";
-import Skills from "./Components/Skills";
-import Resume from "./Components/Resume";
-import Contact from "./Components/Contact";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Experience from "./components/Experience";
+import Resume from "./components/Resume";
+import Contact from "./components/Contact";
 
 function App() {
   return (
-    <div className="bg-white dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
+    <main className="min-h-screen overflow-x-hidden bg-neutral-950 text-white">
       <Navbar />
       <Hero />
       <About />
-      <Projects />
       <Skills />
+      <Projects />
+      <Experience />
       <Resume />
       <Contact />
-    </div>
+    </main>
   );
 }
 

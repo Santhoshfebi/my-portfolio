@@ -1,105 +1,257 @@
-import TypingText from "./TypingText";
-import linkedin from "../assets/linkedin.png";
-import github from "../assets/github.svg";
-import profile from "../assets/Profile.jpg";
-import Navbar from "./Navbar";
 import { motion } from "framer-motion";
+import {
+  ArrowDown,
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  Sparkles,
+  Code2,
+  Database,
+  Cloud,
+  MapPin,
+  Server,
+  ShieldCheck,
+  Cpu,
+} from "lucide-react";
+import profile from "../assets/Profile.png";
+import { personalInfo } from "../data/portfolioData";
+
+const techStack = [
+  { icon: Code2, label: "React" },
+  { icon: Code2, label: "JavaScript" },
+  { icon: Code2, label: "Tailwind CSS" },
+  { icon: Database, label: "Supabase" },
+  { icon: Server, label: "AWS EC2" },
+  { icon: Cloud, label: "AWS S3" },
+  { icon: Cpu, label: "CloudWatch" },
+];
+
+const focusAreas = [
+  {
+    icon: Code2,
+    title: "Frontend Development",
+    text: "React, responsive UI, Tailwind CSS, reusable components",
+  },
+  {
+    icon: Cloud,
+    title: "AWS Cloud",
+    text: "EC2, S3, Load Balancer, Auto Scaling, CloudWatch basics",
+  },
+];
 
 const Hero = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
-      <Navbar />
+    <section
+      id="home"
+      className="relative flex min-h-screen items-center overflow-hidden bg-neutral-950 px-6 pb-16 pt-32"
+    >
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.12),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(202,138,4,0.12),transparent_35%)]" />
+      <div className="absolute left-10 top-20 h-[420px] w-[420px] rounded-full bg-amber-500/10 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-yellow-700/10 blur-3xl" />
 
-      <div className="flex flex-1 flex-col md:flex-row items-center justify-center px-6 md:px-24 gap-14">
+      {/* Decorative Grid */}
+      <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#fbbf24_1px,transparent_1px),linear-gradient(to_bottom,#fbbf24_1px,transparent_1px)] bg-[size:80px_80px]" />
 
-        {/* Profile Image */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="relative"
-        >
-          <motion.img
-            src={profile}
-            alt="Santhosh Raj"
-            className="h-64 w-64 md:h-80 md:w-80 rounded-full object-cover shadow-2xl 
-                       border-4 border-cyan-500 dark:border-cyan-400"
-            whileHover={{ scale: 1.06 }}
-            transition={{ duration: 0.3 }}
-          />
-
-          {/* Floating glow circle behind image */}
-          <div className="absolute inset-0 rounded-full blur-3xl bg-cyan-400 opacity-20 -z-10"></div>
-        </motion.div>
-
-        {/* Right Section */}
-        <motion.div
-          className="flex flex-col items-center md:items-start text-center md:text-left max-w-xl"
-          initial={{ opacity: 0, x: 60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-        >
-          {/* Typing Text */}
-          <TypingText text="Hi, I'm SANTHOSH RAJ R" speed={70} />
-
-          <p className="text-lg md:text-xl mt-3 text-gray-300">
-            A Freshman skilled in ReactJS & Java
-          </p>
-
-          {/* Social Icons */}
-          <div className="flex gap-6 mt-4">
-            <a href="https://www.linkedin.com/in/santhosh-sam/" 
-               target="_blank" rel="noopener noreferrer">
-              <img 
-                src={linkedin} 
-                alt="LinkedIn" 
-                className="h-10 w-10 hover:scale-110 transition rounded-md"
-              />
-            </a>
-
-            <a href="https://github.com/Santhoshfebi" 
-               target="_blank" rel="noopener noreferrer">
-              <img 
-                src={github} 
-                alt="GitHub" 
-                className="h-10 w-10 hover:scale-110 transition rounded-full bg-white dark:bg-gray-200 p-1"
-              />
-            </a>
-          </div>
-
-          {/* About Card */}
+      <div className="relative mx-auto w-full max-w-7xl">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr]">
+          {/* Left Content */}
           <motion.div
-            className="mt-6 p-5 rounded-xl shadow-lg bg-white/85 
-                       backdrop-blur-lg border border-gray-300 dark:border-gray-700"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center lg:text-left"
+            initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.8 }}
           >
-            <p className="text-gray-700 leading-relaxed">
-              I’m Santhosh, a passionate Full-Stack Developer who loves building clean, fast 
-              and responsive web applications.
+            {/* Badge */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-4 py-2 text-sm font-semibold text-amber-300">
+              <Sparkles size={16} />
+              Frontend Developer & AWS Cloud Engineer
+            </div>
+
+            {/* Headline */}
+            <h1 className="text-4xl font-black leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+              Hi, I’m{" "}
+              <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-600 bg-clip-text text-transparent">
+                {personalInfo.name}
+              </span>
+            </h1>
+
+            <h2 className="mt-5 max-w-3xl text-xl font-bold leading-relaxed text-neutral-200 md:text-2xl lg:mx-0">
+              Frontend Developer focused on React apps and AWS cloud deployment
+              fundamentals.
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-neutral-400 md:text-lg lg:mx-0">
+              I build clean, responsive, and user-friendly web applications
+              using React, JavaScript, Tailwind CSS, and Supabase. I am also
+              strengthening my AWS cloud skills with EC2, S3, Load Balancing,
+              Auto Scaling, and CloudWatch to understand how applications are
+              hosted, monitored, and scaled.
             </p>
+
+            {/* Focus Cards */}
+            <div className="mt-7 grid gap-4 sm:grid-cols-2">
+              {focusAreas.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-amber-400/15 bg-white/5 p-4 backdrop-blur-xl transition hover:border-amber-400/35 hover:bg-amber-400/10"
+                  >
+                    <div className="mb-3 flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400/10 text-amber-300">
+                        <Icon size={20} />
+                      </div>
+
+                      <h3 className="font-black text-white">{item.title}</h3>
+                    </div>
+
+                    <p className="text-sm leading-relaxed text-neutral-400">
+                      {item.text}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Location / Availability */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+              <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/15 bg-white/5 px-4 py-2 text-sm font-semibold text-neutral-300">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-400" />
+                </span>
+                Available for opportunities
+              </span>
+
+              <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/15 bg-white/5 px-4 py-2 text-sm font-semibold text-neutral-300">
+                <MapPin size={15} className="text-amber-300" />
+                {personalInfo.location}
+              </span>
+            </div>
+
+            {/* CTA Buttons */}
+            {/* <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-600 px-6 py-3 font-bold text-neutral-950 shadow-lg shadow-amber-950/40 transition hover:scale-105"
+              >
+                View Projects
+                <ArrowDown size={18} />
+              </a>
+
+              <a
+                href={personalInfo.resume}
+                download
+                className="inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-white/5 px-6 py-3 font-bold text-white transition hover:border-amber-400/40 hover:bg-amber-400/10 hover:text-amber-300"
+              >
+                Download Resume
+                <Download size={18} />
+              </a>
+            </div> */}
+
+            {/* Social Icons */}
+            <div className="mt-7 flex items-center justify-center gap-4 lg:justify-start">
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-amber-400/20 bg-white/5 text-neutral-300 transition hover:bg-amber-400 hover:text-neutral-950"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={20} />
+              </a>
+
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-amber-400/20 bg-white/5 text-neutral-300 transition hover:bg-amber-400 hover:text-neutral-950"
+                aria-label="GitHub"
+              >
+                <Github size={20} />
+              </a>
+
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-amber-400/20 bg-white/5 text-neutral-300 transition hover:bg-amber-400 hover:text-neutral-950"
+                aria-label="Email"
+              >
+                <Mail size={20} />
+              </a>
+            </div>
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* Right Portrait Section */}
           <motion.div
-            className="flex gap-5 mt-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.7 }}
+            className="flex justify-center lg:justify-end"
+            initial={{ opacity: 0, scale: 0.9, x: 40 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.15 }}
           >
-            <a 
-              href="/Santhosh_Raj_Resume.pdf" 
-              download 
-              className="px-6 py-3 border-2 border-cyan-600 text-cyan-600 rounded-lg 
-                         hover:bg-cyan-600 hover:text-white hover:scale-105 transition"
-            >
-              Download Resume
-            </a>
+            <div className="relative flex w-full max-w-[430px] justify-center">
+              {/* Outer Glow */}
+              <div className="absolute inset-0 rounded-[3rem] bg-amber-400/20 blur-3xl" />
+
+              {/* Profile Card */}
+              <div className="relative h-[500px] w-full overflow-hidden rounded-[3rem] border border-amber-400/20 bg-gradient-to-br from-amber-400/10 via-neutral-900/90 to-neutral-950 shadow-2xl shadow-black/50 backdrop-blur-xl">
+                {/* Inner Glow */}
+                <div className="absolute left-1/2 top-16 h-72 w-72 -translate-x-1/2 rounded-full bg-amber-400/10 blur-3xl" />
+
+                {/* Gold Ring */}
+                <div className="absolute left-1/2 top-14 h-[320px] w-[320px] -translate-x-1/2 rounded-full border border-amber-400/25" />
+
+                {/* Profile Image */}
+                <motion.img
+                  src={profile}
+                  alt={personalInfo.name}
+                  className="absolute bottom-0 left-1/2 z-20 h-[430px] w-auto -translate-x-1/2 object-contain object-bottom drop-shadow-[0_35px_45px_rgba(0,0,0,0.6)]"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.3 }}
+                />
+
+                {/* Bottom Fade */}
+                <div className="absolute bottom-0 left-0 right-0 z-10 h-36 bg-gradient-to-t from-neutral-950/90 to-transparent" />
+
+                {/* Bottom Label */}
+                <div className="absolute bottom-5 left-5 right-5 z-30 rounded-2xl border border-amber-400/20 bg-neutral-950/80 px-5 py-3 text-center backdrop-blur-xl">
+                  <p className="text-sm text-neutral-400">
+                    Frontend Developer / AWS Cloud Engineer
+                  </p>
+                  <p className="text-lg font-black text-amber-300">
+                    {personalInfo.name}
+                  </p>
+                </div>
+              </div>
+            </div>
           </motion.div>
+        </div>
+
+        {/* Tech Stack Pills */}
+        <motion.div
+          className="mx-auto mt-10 flex max-w-5xl flex-wrap justify-center gap-3"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, delay: 0.6 }}
+        >
+          {techStack.map((tech) => {
+            const Icon = tech.icon;
+
+            return (
+              <div
+                key={tech.label}
+                className="inline-flex items-center gap-2 rounded-full border border-amber-400/15 bg-neutral-900/70 px-4 py-2 text-sm font-semibold text-neutral-300 backdrop-blur-xl transition hover:border-amber-400/40 hover:bg-amber-400/10 hover:text-amber-300"
+              >
+                <Icon size={15} className="text-amber-300" />
+                {tech.label}
+              </div>
+            );
+          })}
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

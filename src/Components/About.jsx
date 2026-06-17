@@ -1,50 +1,108 @@
 import { motion } from "framer-motion";
-import { FaPencilRuler, FaLaptopCode } from "react-icons/fa";
+import { Cloud, Layout, Rocket, ShieldCheck } from "lucide-react";
+import SectionTitle from "./SectionTitle";
 
 const About = () => {
+  const highlights = [
+    {
+      icon: Layout,
+      title: "Frontend Development",
+      text: "I build responsive and clean user interfaces using React, Tailwind CSS, and modern component-based development.",
+    },
+    {
+      icon: Cloud,
+      title: "AWS Cloud",
+      text: "I have hands-on experience with AWS Services, goood knowledge in Cloud foundations.",
+    },
+    {
+      icon: Rocket,
+      title: "Project Building",
+      text: "I enjoy turning real-world ideas into practical applications with proper routing, UI flows, dashboards, and deployment.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Clean Development",
+      text: "I focus on readable code, reusable components, responsive layouts, and smooth user experiences.",
+    },
+  ];
+
   return (
-    <motion.section
-      id="about"
-      className="min-h-screen flex flex-col justify-evenly px-6 py-16 bg-gradient-to-b from-gray-900 to-gray-800 text-white"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7 }}
-      viewport={{ once: true }}
-    >
-      <h1 className="text-5xl md:text-6xl font-extrabold text-center mb-10">
-        About Me
-      </h1>
+    <section id="about" className="min-h-screen px-6 py-24">
+      <SectionTitle
+        label="About Me"
+        title="I build practical and user-friendly web applications"
+        description="I am a frontend developer with hands-on experience in React, JavaScript, Tailwind CSS, Supabase, and MySQL. I enjoy building clean interfaces, authentication flows, dashboards, and responsive applications."
+      />
 
-      <p className="text-center max-w-3xl mx-auto text-lg md:text-xl mb-16 leading-relaxed">
-        I am a passionate web developer eager to take on new challenges and continuously improve my skills.  
-        Whether it’s creating sleek front-end interfaces or building robust back-end systems, I strive to bring projects to life.  
-        Innovative and detail-oriented, I excel at crafting user-friendly experiences, solving problems efficiently, and implementing features based on feedback.
-      </p>
-
-      <div className="flex flex-col md:flex-row justify-center gap-10">
+      <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
         <motion.div
-          className="flex-1 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 text-center"
-          whileHover={{ scale: 1.05 }}
+          className="rounded-3xl border border-amber-400/15 bg-white/[0.04] p-8 backdrop-blur-xl md:p-10"
+          initial={{ opacity: 0, x: -35 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
         >
-          <FaPencilRuler className="text-5xl text-cyan-600 mb-4 mx-auto" />
-          <h2 className="text-2xl font-semibold mb-2">Design</h2>
-          <p className="text-gray-600 dark:text-gray-300">
-            Collaborate to design responsive and interactive websites that engage users and provide seamless experiences.
+          <h3 className="mb-5 text-2xl font-bold text-white">
+            My development journey
+          </h3>
+
+          <p className="mb-5 leading-relaxed text-neutral-400">
+            I started my development journey with HTML, CSS, JavaScript, and
+            React. Over time, I expanded into backend-connected projects using
+            Supabase and MySQL, where I worked with authentication, database
+            operations, file uploads, protected pages, and admin dashboards.
           </p>
+
+          <p className="leading-relaxed text-neutral-400">
+            My recent projects include a bilingual quiz application, HR portal,
+            movie booking website, and e-commerce cart application. These
+            projects helped me improve my skills in UI design, React components,
+            routing, state management, API integration, and deployment.
+          </p>
+
+          <div className="mt-8 grid grid-cols-2 gap-4">
+            {/* <div className="rounded-2xl border border-amber-400/15 bg-neutral-950/60 p-5">
+              <p className="text-3xl font-black text-amber-400">4+</p>
+              <p className="mt-1 text-sm text-neutral-400">Projects Built</p>
+            </div> */}
+
+            {/* <div className="rounded-2xl border border-amber-400/15 bg-neutral-950/60 p-5">
+              <p className="text-3xl font-black text-amber-400">React</p>
+              <p className="mt-1 text-sm text-neutral-400">Main Skill</p>
+            </div> */}
+          </div>
         </motion.div>
 
-        <motion.div
-          className="flex-1 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 text-center"
-          whileHover={{ scale: 1.05 }}
-        >
-          <FaLaptopCode className="text-5xl text-cyan-600 mb-4 mx-auto" />
-          <h2 className="text-2xl font-semibold mb-2">Development</h2>
-          <p className="text-gray-600 dark:text-gray-300">
-            Build responsive websites with clean, maintainable code while ensuring seamless user interactions and functionality.
-          </p>
-        </motion.div>
+        <div className="grid gap-5 sm:grid-cols-2">
+          {highlights.map((item, index) => {
+            const Icon = item.icon;
+
+            return (
+              <motion.div
+                key={item.title}
+                className="rounded-3xl border border-amber-400/15 bg-white/[0.04] p-6 backdrop-blur-xl transition hover:border-amber-400/40 hover:bg-amber-400/10"
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-400/10 text-amber-300">
+                  <Icon size={24} />
+                </div>
+
+                <h4 className="mb-3 text-lg font-bold text-white">
+                  {item.title}
+                </h4>
+
+                <p className="text-sm leading-relaxed text-neutral-400">
+                  {item.text}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
