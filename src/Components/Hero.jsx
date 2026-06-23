@@ -55,10 +55,10 @@ const Hero = () => {
       <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#fbbf24_1px,transparent_1px),linear-gradient(to_bottom,#fbbf24_1px,transparent_1px)] bg-[size:80px_80px]" />
 
       <div className="relative mx-auto w-full max-w-7xl">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr]">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
           {/* Left Content */}
           <motion.div
-            className="text-center lg:text-left"
+            className="order-2 text-center lg:order-1 lg:text-left"
             initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -186,17 +186,17 @@ const Hero = () => {
 
           {/* Right Portrait Section */}
           <motion.div
-            className="flex justify-center lg:justify-end"
+            className="order-1 flex justify-center lg:order-2 lg:justify-end"
             initial={{ opacity: 0, scale: 0.9, x: 40 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.15 }}
           >
-            <div className="relative flex w-full max-w-[430px] justify-center">
+            <div className="relative flex w-[90%] sm:w-full max-w-[430px] justify-center mb-8 lg:mb-20">
               {/* Outer Glow */}
               <div className="absolute inset-0 rounded-[3rem] bg-amber-400/20 blur-3xl" />
 
               {/* Profile Card */}
-              <div className="relative h-[500px] w-full overflow-hidden rounded-[3rem] border border-amber-400/20 bg-gradient-to-br from-amber-400/10 via-neutral-900/90 to-neutral-950 shadow-2xl shadow-black/50 backdrop-blur-xl">
+              <div className=" relative h-[300px] sm:h-[400px] lg:h-[430px] w-full overflow-hidden rounded-[2rem] lg:rounded-[3rem] border border-amber-400/20 bg-gradient-to-br from-amber-400/10 via-neutral-900/90 to-neutral-950 shadow-2xl shadow-black/50 backdrop-blur-xl">
                 {/* Inner Glow */}
                 <div className="absolute left-1/2 top-16 h-72 w-72 -translate-x-1/2 rounded-full bg-amber-400/10 blur-3xl" />
 
@@ -207,7 +207,7 @@ const Hero = () => {
                 <motion.img
                   src={profile}
                   alt={personalInfo.name}
-                  className="absolute bottom-0 left-1/2 z-20 h-[430px] w-auto -translate-x-1/2 object-contain object-bottom drop-shadow-[0_35px_45px_rgba(0,0,0,0.6)]"
+                  className="absolute bottom-0 left-1/2 z-20 h-[320px] sm:h-[380px] lg:h-[430px] w-auto -translate-x-1/2 object-contain object-bottom drop-shadow-[0_35px_45px_rgba(0,0,0,0.6)]"
                   whileHover={{ scale: 1.03 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -216,11 +216,11 @@ const Hero = () => {
                 <div className="absolute bottom-0 left-0 right-0 z-10 h-36 bg-gradient-to-t from-neutral-950/90 to-transparent" />
 
                 {/* Bottom Label */}
-                <div className="absolute bottom-5 left-5 right-5 z-30 rounded-2xl border border-amber-400/20 bg-neutral-950/80 px-5 py-3 text-center backdrop-blur-xl">
-                  <p className="text-sm text-neutral-400">
+                <div className="absolute bottom-1 sm:bottom-3 lg:bottom-5 left-5 right-5 z-30 h-[65px] sm:h-[80px] lg:h-[80px] rounded-2xl border border-amber-400/20 bg-neutral-950/80 px-5 py-3 text-center backdrop-blur-xl">
+                  <p className="text-xs sm:text-sm lg:text-sm  text-neutral-400">
                     Frontend Developer / AWS Cloud Engineer
                   </p>
-                  <p className="text-lg font-black text-amber-300">
+                  <p className="text-xs sm:text-lg lg:text-lg font-black text-amber-300">
                     {personalInfo.name}
                   </p>
                 </div>
