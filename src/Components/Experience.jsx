@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   BriefcaseBusiness,
@@ -6,9 +7,13 @@ import {
   Code2,
   Calendar,
   MapPin,
+  Eye,
+  X,
 } from "lucide-react";
+
 import SectionTitle from "./SectionTitle";
 import { experiences } from "../data/portfolioData";
+import { certificates } from "../data/certificates";
 
 const typeIcons = {
   Internship: BriefcaseBusiness,
@@ -23,6 +28,8 @@ const getYear = (period) => {
 };
 
 const Experience = () => {
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+
   return (
     <section
       id="experience"
@@ -36,13 +43,13 @@ const Experience = () => {
         <div className="pt-10">
           <SectionTitle
             label="Experience"
-            title="My professional journey"
-            description="A simple timeline of my internships, training programs, certifications, and practical learning experience."
+            title="Experience & Certifications"
+            description="Internships, training programs, education and certifications."
           />
         </div>
 
         <div className="relative mx-auto mt-12 max-w-6xl">
-          {/* Timeline Line */}
+          {/* Timeline */}
           <div className="absolute left-5 top-0 h-full w-[2px] bg-gradient-to-b from-amber-400/0 via-amber-400/60 to-amber-400/0 md:left-1/2 md:-translate-x-1/2" />
 
           <div className="space-y-8">
@@ -65,7 +72,7 @@ const Experience = () => {
                     <TypeIcon size={17} />
                   </div>
 
-                  {/* Left Side Card */}
+                  {/* Left */}
                   <div className={`${isLeft ? "md:pr-12" : "hidden md:block"}`}>
                     {isLeft && (
                       <ExperienceCard
@@ -73,11 +80,12 @@ const Experience = () => {
                         year={year}
                         TypeIcon={TypeIcon}
                         align="right"
+                        onCertificateClick={setSelectedCertificate}
                       />
                     )}
                   </div>
 
-                  {/* Right Side Card */}
+                  {/* Right */}
                   <div className={`${!isLeft ? "md:pl-12" : "md:hidden"}`}>
                     {!isLeft && (
                       <ExperienceCard
@@ -85,10 +93,10 @@ const Experience = () => {
                         year={year}
                         TypeIcon={TypeIcon}
                         align="left"
+                        onCertificateClick={setSelectedCertificate}
                       />
                     )}
 
-                    {/* Mobile */}
                     {isLeft && (
                       <div className="md:hidden">
                         <ExperienceCard
@@ -96,6 +104,7 @@ const Experience = () => {
                           year={year}
                           TypeIcon={TypeIcon}
                           align="left"
+                          onCertificateClick={setSelectedCertificate}
                         />
                       </div>
                     )}
@@ -106,11 +115,94 @@ const Experience = () => {
           </div>
         </div>
       </div>
+
+      {/* Certificate Modal */}
+      {selectedCertificate && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[999] flex items-center justify-center bg-black/85 backdrop-blur-lg p-4"
+          onClick={() => setSelectedCertificate(null)}
+        >
+          <motion.div
+            initial={{
+              scale: 0.8,
+              opacity: 0,
+              y: 50,
+            }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 120,
+            }}
+            onClick={(e) => e.stopPropagation()}
+            className="
+      relative
+      w-full
+      max-w-6xl
+      overflow-hidden
+      rounded-[2rem]
+      border
+      border-amber-400/20
+      bg-neutral-900
+      shadow-[0_0_80px_rgba(251,191,36,0.15)]
+    "
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between border-b border-amber-400/10 px-6 py-5">
+              <div>
+                <h3 className="text-xl font-black text-white">
+                  {selectedCertificate}
+                </h3>
+
+                <p className="text-sm text-amber-300">Verified Certification</p>
+              </div>
+
+              <button
+                onClick={() => setSelectedCertificate(null)}
+                className="
+          flex h-10 w-10 items-center justify-center
+          rounded-full bg-white/5 text-white
+          hover:bg-red-500 transition
+        "
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Certificate */}
+            <div className="p-6">
+              <img
+                src={certificates[selectedCertificate]}
+                alt={selectedCertificate}
+                className="
+          mx-auto
+          max-h-[75vh]
+          rounded-2xl
+          border border-amber-400/10
+          shadow-2xl
+        "
+              />
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </section>
   );
 };
 
-const ExperienceCard = ({ item, year, TypeIcon, align = "left" }) => {
+const ExperienceCard = ({
+  item,
+  year,
+  TypeIcon,
+  align = "left",
+  onCertificateClick,
+}) => {
   return (
     <motion.article
       whileHover={{ y: -4 }}
@@ -132,13 +224,9 @@ const ExperienceCard = ({ item, year, TypeIcon, align = "left" }) => {
         </span>
       </div>
 
-      <h3 className="text-lg font-black leading-snug text-white">
-        {item.title}
-      </h3>
+      <h3 className="text-lg font-black text-white">{item.title}</h3>
 
-      <p className="mt-1.5 text-sm font-bold text-amber-300">
-        {item.company}
-      </p>
+      <p className="mt-1.5 text-sm font-bold text-amber-300">{item.company}</p>
 
       <div
         className={`mt-3 flex flex-wrap gap-2 text-xs text-neutral-400 ${
@@ -160,6 +248,16 @@ const ExperienceCard = ({ item, year, TypeIcon, align = "left" }) => {
         {item.description}
       </p>
 
+      {item.type === "Certification" && certificates[item.title] && (
+        <button
+          onClick={() => onCertificateClick(item.title)}
+          className="mt-4 inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-4 py-2 text-sm font-bold text-amber-300 transition hover:border-amber-400 hover:bg-amber-400/20"
+        >
+          <Eye size={16} />
+          View Certificate
+        </button>
+      )}
+
       <div
         className={`mt-4 flex flex-wrap gap-2 ${
           align === "right" ? "md:justify-end" : "justify-start"
@@ -168,7 +266,7 @@ const ExperienceCard = ({ item, year, TypeIcon, align = "left" }) => {
         {item.skills.map((skill) => (
           <span
             key={skill}
-            className="rounded-full border border-amber-400/15 bg-neutral-950/70 px-3 py-1 text-[11px] font-bold text-neutral-300 transition hover:border-amber-400/35 hover:text-amber-300"
+            className="rounded-full border border-amber-400/15 bg-neutral-950/70 px-3 py-1 text-[11px] font-bold text-neutral-300"
           >
             {skill}
           </span>
