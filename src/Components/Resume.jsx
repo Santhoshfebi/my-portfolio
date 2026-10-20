@@ -1,96 +1,865 @@
 import { motion } from "framer-motion";
-import { Download, FileText, CheckCircle2 } from "lucide-react";
-import SectionTitle from "./SectionTitle";
+import {
+  ArrowDown,
+  Check,
+  Download,
+  FileText,
+} from "lucide-react";
+
 import { personalInfo } from "../data/portfolioData";
 import resumePdf from "../assets/SANTHOSH_RAJ_R_CV.pdf";
 
+/* ==========================================================
+   RESUME HIGHLIGHTS
+========================================================== */
+
 const resumeHighlights = [
-  "Learnings from AWS Cloud Services and Projects",
-  "Hands-on projects using Supabase authentication and database features",
-  "Experience with Git, GitHub, Vercel, MySQL, and basic AWS services",
-  "Built practical projects like Quiztians, HR Portal, and Movie Booking App",
+  "Frontend development with React, JavaScript and Tailwind CSS",
+  "Supabase authentication, database operations and application flows",
+  "Practical projects including Quiztians and HR Portal",
+  "AWS cloud foundations with EC2, S3, CloudWatch and scaling concepts",
+  "Internship and full-stack development training experience",
 ];
+
+/* ==========================================================
+   RESUME META
+========================================================== */
+
+const resumeMeta = [
+  {
+    label: "Focus",
+    value: "Frontend + Cloud",
+  },
+  {
+    label: "Frontend",
+    value: "React",
+  },
+  {
+    label: "Backend",
+    value: "Supabase",
+  },
+  {
+    label: "Cloud",
+    value: "AWS",
+  },
+];
+
+/* ==========================================================
+   RESUME
+========================================================== */
 
 const Resume = () => {
   return (
     <section
       id="resume"
-      className="relative overflow-hidden bg-neutral-900/40 px-6 py-24"
+      className="
+        relative
+        overflow-hidden
+        bg-[#070A0F]
+        px-5
+        py-24
+        text-[#F5F7FA]
+        sm:px-8
+        sm:py-28
+        lg:px-12
+        lg:py-32
+        xl:px-16
+      "
     >
-      <div className="absolute right-0 top-20 h-80 w-80 rounded-full bg-amber-500/10 blur-3xl" />
-      <div className="absolute left-0 bottom-0 h-96 w-96 rounded-full bg-yellow-700/10 blur-3xl" />
+      {/* ======================================================
+          BACKGROUND
+      ====================================================== */}
 
-      <div className="relative mx-auto max-w-6xl">
-        <SectionTitle
-          label="Resume"
-          title="Download my resume"
-          description="A quick overview of my technical skills, internships, certifications, and projects."
-        />
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-[220px]
+          top-[5%]
+          h-[500px]
+          w-[500px]
+          rounded-full
+          bg-[#4F8CFF]/[0.04]
+          blur-[150px]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-[250px]
+          bottom-[-100px]
+          h-[500px]
+          w-[500px]
+          rounded-full
+          bg-[#4F8CFF]/[0.025]
+          blur-[150px]
+        "
+      />
+
+      {/* Architectural lines */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          left-[7%]
+          top-0
+          hidden
+          h-full
+          w-px
+          bg-white/[0.03]
+          xl:block
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-[7%]
+          top-0
+          hidden
+          h-full
+          w-px
+          bg-white/[0.03]
+          xl:block
+        "
+      />
+
+      <div className="relative mx-auto max-w-[1400px]">
+        {/* ====================================================
+            SECTION HEADER
+        ==================================================== */}
 
         <motion.div
-          className="mx-auto grid max-w-5xl gap-6 rounded-[2rem] border border-amber-400/15 bg-white/[0.04] p-7 backdrop-blur-xl md:grid-cols-[0.85fr_1.15fr] md:p-10"
-          initial={{ opacity: 0, y: 34 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.3,
+          }}
+          transition={{
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            border-b
+            border-white/[0.07]
+            pb-8
+            sm:pb-10
+          "
         >
-          <div className="flex flex-col justify-between rounded-[1.5rem] border border-amber-400/10 bg-neutral-950/70 p-6">
-            <div>
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-400/10 text-amber-300">
-                <FileText size={28} />
-              </div>
+          <div className="flex items-center gap-3">
+            <span className="h-px w-8 bg-[#4F8CFF] sm:w-10" />
 
-              <h3 className="text-2xl font-black text-white">
+            <span
+              className="
+                text-[9px]
+                font-bold
+                uppercase
+                tracking-[0.3em]
+                text-[#77808F]
+              "
+            >
+              06 / Resume
+            </span>
+          </div>
+
+          <div
+            className="
+              mt-7
+              grid
+              gap-7
+              lg:grid-cols-[1.1fr_0.9fr]
+              lg:items-end
+              lg:gap-16
+            "
+          >
+            <h2
+              className="
+                max-w-4xl
+                text-[clamp(2.7rem,8vw,5.7rem)]
+                font-black
+                leading-[0.94]
+                tracking-[-0.065em]
+                text-[#F5F7FA]
+              "
+            >
+              Everything in
+              <span className="block text-[#4F8CFF]">
+                one document.
+              </span>
+            </h2>
+
+            <div className="lg:ml-auto lg:max-w-xl">
+              <p
+                className="
+                  text-sm
+                  leading-7
+                  text-[#8993A1]
+                  sm:text-base
+                  sm:leading-8
+                "
+              >
+                A concise overview of my technical skills, development
+                experience, education, cloud learning and the projects
+                I&apos;ve built.
+              </p>
+
+              <div className="mt-5 flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#4F8CFF]" />
+
+                <span
+                  className="
+                    text-[8px]
+                    font-bold
+                    uppercase
+                    tracking-[0.25em]
+                    text-[#596372]
+                  "
+                >
+                  PDF · Ready to download
+                </span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ====================================================
+            RESUME CONTENT
+        ==================================================== */}
+
+        <div
+          className="
+            grid
+            border-b
+            border-white/[0.07]
+            lg:grid-cols-[0.85fr_1.15fr]
+          "
+        >
+          {/* ==================================================
+              LEFT — DOCUMENT
+          ================================================== */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: -25,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
+            transition={{
+              duration: 0.7,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="
+              relative
+              border-b
+              border-white/[0.07]
+              py-12
+              sm:py-14
+              lg:border-b-0
+              lg:border-r
+              lg:pr-12
+              lg:py-16
+              xl:pr-16
+            "
+          >
+            {/* Large decorative number */}
+
+            <div
+              className="
+                pointer-events-none
+                absolute
+                right-6
+                top-8
+                hidden
+                select-none
+                text-[130px]
+                font-black
+                leading-none
+                tracking-[-0.08em]
+                text-white/[0.02]
+                sm:block
+              "
+            >
+              CV
+            </div>
+
+            {/* Document icon */}
+
+            <div
+              className="
+                relative
+                flex
+                h-16
+                w-16
+                items-center
+                justify-center
+                border
+                border-[#4F8CFF]/30
+                bg-[#4F8CFF]/[0.06]
+                text-[#4F8CFF]
+                sm:h-20
+                sm:w-20
+              "
+            >
+              <FileText size={30} />
+
+              <span className="absolute -right-px -top-px h-3 w-3 border-r border-t border-[#4F8CFF]" />
+
+              <span className="absolute -bottom-px -left-px h-3 w-3 border-b border-l border-[#4F8CFF]" />
+            </div>
+
+            {/* Name */}
+
+            <div className="relative mt-8">
+              <span
+                className="
+                  text-[8px]
+                  font-bold
+                  uppercase
+                  tracking-[0.3em]
+                  text-[#505967]
+                "
+              >
+                Curriculum Vitae
+              </span>
+
+              <h3
+                className="
+                  mt-3
+                  text-3xl
+                  font-black
+                  tracking-[-0.045em]
+                  text-[#F5F7FA]
+                  sm:text-4xl
+                "
+              >
                 {personalInfo.name}
               </h3>
 
-              <p className="mt-2 font-semibold text-amber-300">
-                {personalInfo.role}
-              </p>
-
-              <p className="mt-4 leading-relaxed text-neutral-400">
-                Resume focused on AWS cloud Services, Cloud Engineer, frontend
-                development, React projects, Supabase-based applications,
-                internships, Educations and AWS cloud learning.
+              <p
+                className="
+                  mt-3
+                  text-[10px]
+                  font-bold
+                  uppercase
+                  tracking-[0.2em]
+                  text-[#4F8CFF]
+                "
+              >
+                Frontend Developer · AWS Cloud
               </p>
             </div>
+
+            {/* Description */}
+
+            <p
+              className="
+                relative
+                mt-7
+                max-w-md
+                text-sm
+                leading-7
+                text-[#7C8695]
+                sm:text-[15px]
+                sm:leading-8
+              "
+            >
+              My resume covers frontend development, practical React
+              projects, backend-connected applications, internships,
+              education and my developing foundation in AWS cloud
+              technologies.
+            </p>
+
+            {/* File info */}
+
+            <div
+              className="
+                relative
+                mt-8
+                grid
+                grid-cols-2
+                border-l
+                border-t
+                border-white/[0.07]
+              "
+            >
+              <div
+                className="
+                  border-b
+                  border-r
+                  border-white/[0.07]
+                  p-4
+                "
+              >
+                <span
+                  className="
+                    text-[7px]
+                    font-bold
+                    uppercase
+                    tracking-[0.25em]
+                    text-[#454E5B]
+                  "
+                >
+                  Format
+                </span>
+
+                <p
+                  className="
+                    mt-2
+                    text-xs
+                    font-bold
+                    uppercase
+                    tracking-[0.12em]
+                    text-[#D7DCE4]
+                  "
+                >
+                  PDF
+                </p>
+              </div>
+
+              <div
+                className="
+                  border-b
+                  border-r
+                  border-white/[0.07]
+                  p-4
+                "
+              >
+                <span
+                  className="
+                    text-[7px]
+                    font-bold
+                    uppercase
+                    tracking-[0.25em]
+                    text-[#454E5B]
+                  "
+                >
+                  Document
+                </span>
+
+                <p
+                  className="
+                    mt-2
+                    text-xs
+                    font-bold
+                    uppercase
+                    tracking-[0.12em]
+                    text-[#D7DCE4]
+                  "
+                >
+                  Resume
+                </p>
+              </div>
+            </div>
+
+            {/* Download */}
 
             <a
               href={resumePdf}
               download="SANTHOSH_RAJ_R_CV.pdf"
-              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-600 px-6 py-3 font-bold text-neutral-950 shadow-lg shadow-amber-950/40 transition hover:scale-105"
+              className="
+                group
+                relative
+                mt-7
+                flex
+                w-full
+                items-center
+                justify-between
+                bg-[#4F8CFF]
+                px-5
+                py-4
+                text-[9px]
+                font-bold
+                uppercase
+                tracking-[0.19em]
+                text-white
+                transition-all
+                duration-300
+                hover:bg-[#6198FF]
+                hover:shadow-[0_0_45px_rgba(79,140,255,0.17)]
+                sm:w-fit
+                sm:min-w-[220px]
+              "
             >
-              <Download size={18} />
-              Download Resume
+              <span className="flex items-center gap-3">
+                <Download size={16} />
+
+                Download Resume
+              </span>
+
+              <ArrowDown
+                size={15}
+                className="
+                  transition-transform
+                  duration-300
+                  group-hover:translate-y-1
+                "
+              />
             </a>
-          </div>
+          </motion.div>
 
-          <div className="rounded-[1.5rem] border border-amber-400/10 bg-neutral-950/50 p-6">
-            <h4 className="mb-5 text-xl font-black text-white">
-              Resume Highlights
-            </h4>
+          {/* ==================================================
+              RIGHT — HIGHLIGHTS
+          ================================================== */}
 
-            <div className="space-y-4">
-              {resumeHighlights.map((item) => (
-                <div key={item} className="flex gap-3">
-                  <CheckCircle2
-                    className="mt-0.5 shrink-0 text-amber-300"
-                    size={20}
-                  />
-                  <p className="leading-relaxed text-neutral-400">{item}</p>
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: 25,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
+            transition={{
+              duration: 0.7,
+              delay: 0.08,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="
+              py-12
+              sm:py-14
+              lg:pl-12
+              lg:py-16
+              xl:pl-16
+            "
+          >
+            {/* Header */}
+
+            <div>
+              <span
+                className="
+                  text-[8px]
+                  font-bold
+                  uppercase
+                  tracking-[0.3em]
+                  text-[#4F8CFF]
+                "
+              >
+                Resume Highlights
+              </span>
+
+              <h3
+                className="
+                  mt-3
+                  max-w-lg
+                  text-2xl
+                  font-bold
+                  leading-tight
+                  tracking-[-0.035em]
+                  text-[#E6EAF0]
+                  sm:text-3xl
+                "
+              >
+                A quick look at what&apos;s inside.
+              </h3>
+            </div>
+
+            {/* Highlights */}
+
+            <div
+              className="
+                mt-8
+                border-t
+                border-white/[0.07]
+              "
+            >
+              {resumeHighlights.map((item, index) => (
+                <motion.div
+                  key={item}
+                  initial={{
+                    opacity: 0,
+                    x: 15,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.45,
+                    delay: index * 0.06,
+                  }}
+                  className="
+                    group
+                    grid
+                    grid-cols-[35px_1fr]
+                    gap-4
+                    border-b
+                    border-white/[0.07]
+                    py-5
+                  "
+                >
+                  <span
+                    className="
+                      text-[8px]
+                      font-bold
+                      tracking-[0.16em]
+                      text-[#3F4855]
+                    "
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <div className="flex gap-3">
+                    <Check
+                      size={15}
+                      className="
+                        mt-1
+                        shrink-0
+                        text-[#4F8CFF]
+                      "
+                    />
+
+                    <p
+                      className="
+                        text-sm
+                        leading-6
+                        text-[#7C8695]
+                        transition-colors
+                        duration-300
+                        group-hover:text-[#C9D0D9]
+                      "
+                    >
+                      {item}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* =================================================
+                RESUME META
+            ================================================= */}
+
+            <div
+              className="
+                mt-9
+                grid
+                grid-cols-2
+                border-l
+                border-t
+                border-white/[0.07]
+                sm:grid-cols-4
+              "
+            >
+              {resumeMeta.map((item) => (
+                <div
+                  key={item.label}
+                  className="
+                    group
+                    min-h-[100px]
+                    border-b
+                    border-r
+                    border-white/[0.07]
+                    p-4
+                    transition-colors
+                    duration-300
+                    hover:bg-[#4F8CFF]/[0.025]
+                  "
+                >
+                  <span
+                    className="
+                      text-[7px]
+                      font-bold
+                      uppercase
+                      tracking-[0.22em]
+                      text-[#454E5B]
+                    "
+                  >
+                    {item.label}
+                  </span>
+
+                  <p
+                    className="
+                      mt-6
+                      text-[11px]
+                      font-bold
+                      text-[#D7DCE4]
+                      transition-colors
+                      duration-300
+                      group-hover:text-[#4F8CFF]
+                    "
+                  >
+                    {item.value}
+                  </p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 rounded-2xl border border-amber-400/10 bg-amber-400/10 p-5">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
-                Open To
-              </p>
-              <p className="mt-3 text-lg font-bold text-white">
-                Cloud Engineer · DevOps · Frontend Developer · AWS Fresher
-              </p>
+            {/* =================================================
+                OPEN TO
+            ================================================= */}
+
+            <div
+              className="
+                relative
+                mt-9
+                overflow-hidden
+                border
+                border-[#4F8CFF]/20
+                bg-[#4F8CFF]/[0.035]
+                p-5
+                sm:p-6
+              "
+            >
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  -right-20
+                  -top-20
+                  h-40
+                  w-40
+                  rounded-full
+                  bg-[#4F8CFF]/10
+                  blur-[70px]
+                "
+              />
+
+              <div className="relative">
+                <div className="flex items-center gap-3">
+                  <span className="relative flex h-2 w-2">
+                    <span
+                      className="
+                        absolute
+                        inline-flex
+                        h-full
+                        w-full
+                        animate-ping
+                        rounded-full
+                        bg-[#4F8CFF]
+                        opacity-40
+                      "
+                    />
+
+                    <span
+                      className="
+                        relative
+                        inline-flex
+                        h-2
+                        w-2
+                        rounded-full
+                        bg-[#4F8CFF]
+                      "
+                    />
+                  </span>
+
+                  <span
+                    className="
+                      text-[8px]
+                      font-bold
+                      uppercase
+                      tracking-[0.28em]
+                      text-[#4F8CFF]
+                    "
+                  >
+                    Open to opportunities
+                  </span>
+                </div>
+
+                <p
+                  className="
+                    mt-4
+                    max-w-xl
+                    text-lg
+                    font-semibold
+                    leading-7
+                    tracking-[-0.025em]
+                    text-[#DCE1E8]
+                  "
+                >
+                  Frontend Developer · React Developer · Entry-Level
+                  Cloud / AWS Opportunities
+                </p>
+
+                <p
+                  className="
+                    mt-3
+                    max-w-xl
+                    text-xs
+                    leading-6
+                    text-[#667085]
+                  "
+                >
+                  Interested in roles where I can contribute to web
+                  development while continuing to grow my cloud and
+                  application deployment skills.
+                </p>
+              </div>
             </div>
-          </div>
+          </motion.div>
+        </div>
+
+        {/* ====================================================
+            BOTTOM STRIP
+        ==================================================== */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          whileInView={{
+            opacity: 1,
+          }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.6,
+          }}
+          className="
+            flex
+            flex-col
+            gap-3
+            py-6
+            sm:flex-row
+            sm:items-center
+            sm:justify-between
+          "
+        >
+          <span
+            className="
+              text-[7px]
+              font-bold
+              uppercase
+              tracking-[0.27em]
+              text-[#404956]
+            "
+          >
+            Santhosh Raj R · Curriculum Vitae
+          </span>
+
+          <span
+            className="
+              text-[7px]
+              font-bold
+              uppercase
+              tracking-[0.27em]
+              text-[#404956]
+            "
+          >
+            Frontend · Backend Integration · Cloud Foundations
+          </span>
         </motion.div>
       </div>
     </section>
